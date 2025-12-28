@@ -1506,7 +1506,11 @@ restart:
                 if (chry_readline_edit_insert(rl, c)) {
                     return NULL;
                 }
-                continue;
+                if (c != '?') {
+                    continue;
+                } else {
+                    c = CHRY_READLINE_EXEC_NLN;
+                }
             } else {
                 /*!< delete */
                 c = CHRY_READLINE_EXEC_BS;
